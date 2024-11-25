@@ -3,102 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FTP Messaging System</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-    }
-    .message-box {
-      width: 300px;
-      height: 200px;
-      border: 1px solid #ccc;
-      padding: 10px;
-      overflow-y: auto;
-    }
-    .input-message {
-      width: 100%;
-      height: 50px;
-      padding: 10px;
-      margin-top: 10px;
-    }
-    .users {
-      margin-top: 20px;
-    }
-  </style>
+  <title>FTP Messaging</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>FTP Messaging System</h2>
-  <div class="message-box" id="messages"></div>
-  <textarea class="input-message" id="messageInput" placeholder="Type your message here..."></textarea>
-  <button onclick="sendMessage()">Send</button>
-
-  <div class="users">
-    <h3>Connected Users</h3>
-    <ul id="userList"></ul>
+  <div class="message-box">
+    <h1>Send/Receive Messages via FTP</h1>
+    <form id="messageForm">
+      <textarea id="message" name="message" required></textarea><br><br>
+      <button type="submit">Send Message</button>
+    </form>
+    <h2>Messages:</h2>
+    <div id="messageList"></div>
   </div>
 
-  <div id="serverInfo"></div>
-
-  <script src="https://cdn.socket.io/4.0.1/socket.io.min.js"></script>
-  <script>
-    const socket = io();
-
-    // Get and display connected users
-    socket.on('user_connected', (data) => {
-      let userList = document.getElementById('userList');
-      let listItem = document.createElement('li');
-      listItem.textContent = data.username;
-      userList.appendChild(listItem);
-    });
-
-    // Display the current server info
-    socket.on('server_update', (data) => {
-      let serverInfo = document.getElementById('serverInfo');
-      serverInfo.textContent = `Current Server: ${data.server}`;
-    });
-
-    // Listen for new messages
-    socket.on('new_message', (data) => {
-      let messageBox = document.getElementById('messages');
-      let messageElement = document.createElement('p');
-      messageElement.textContent = `${data.username}: ${data.message}`;
-      messageBox.appendChild(messageElement);
-    });
-
-    // Assign server to the first user
-    socket.on('server_assigned', (data) => {
-      let serverInfo = document.getElementById('serverInfo');
-      serverInfo.textContent = `Current Server: ${data.server}`;
-    });
-
-    // Send a message to the server or broadcast
-    function sendMessage() {
-      let message = document.getElementById('messageInput').value;
-      socket.emit('send_message', { message: message });
-      document.getElementById('messageInput').value = '';  // Clear input
-    }
-
-    // Update user list
-    socket.on('user_connected', () => {
-      updateUserList();
-    });
-
-    function updateUserList() {
-      fetch('/get_users')
-        .then(response => response.json())
-        .then(data => {
-          const userList = document.getElementById('userList');
-          userList.innerHTML = '';  // Clear existing list
-          data.users.forEach(user => {
-            const listItem = document.createElement('li');
-            listItem.textContent = user;
-            userList.appendChild(listItem);
-          });
-        });
-    }
-
-    // Update users list on connection
-    socket.emit('connect');
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
