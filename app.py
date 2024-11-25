@@ -25,7 +25,7 @@ def update_messages(message, username):
     new_message = pd.DataFrame({"username": [username], "message": [message]})
     
     # Concatenate the new message with the existing DataFrame
-    df = pd.concat([new_message, df], ignore_index=True)  # Add new message at the top
+    df = pd.concat([df, new_message], ignore_index=True)
     
     # Keep only the last 10 messages
     df = df.tail(10)
@@ -41,18 +41,18 @@ username = st.text_input("Enter your username:", "")
 
 # Proceed if the username is entered
 if username:
-    # Show message input box when username is provided, use a textarea for multiline input
-    message = st.text_area("Enter your message:", "", height=100, key="message_input")
-
+    # Show message input box when username is provided
+    # Use text_area for multiline message input
+    if 'message' not in st.session_state:
+        st.session_state.message = ""  # Initialize the message field
+    
+    message = st.text_area("Enter your message:", st.session_state.message, height=150)
     send_button = st.button("Send")
 
-    # Handling message sending
     if send_button and message:
         update_messages(message, username)
+        st.session_state.message = ""  # Clear the text area after sending the message
         st.success("Message sent!")
-        
-        # Clear the text area by updating session state
-        st.session_state["message_input"] = ""
 
 # Display the last 10 messages from the CSV
 st.subheader("Last 10 messages:")
@@ -61,6 +61,8 @@ st.subheader("Last 10 messages:")
 st.subheader("Content of the 'msg.csv' file:")
 df = get_messages()  # Get the current messages from CSV
 if not df.empty:
+    # Reverse the order to show the latest message first
+    df = df[::-1]
     st.write(df)  # Show the DataFrame in the UI
 else:
     st.write("No messages in the file yet.")
@@ -68,9 +70,9 @@ else:
 # Container to display messages
 message_container = st.empty()
 
-# Display the last 10 messages with the most recent message first
+# Display the last 10 messages
 if not df.empty:
-    # Reverse the order to display the last message first
+    # Display messages from the CSV file, starting from the last (most recent)
     message_container.empty()
     for i, row in df.iterrows():
         message_container.write(f"{row['username']}: {row['message']}")
