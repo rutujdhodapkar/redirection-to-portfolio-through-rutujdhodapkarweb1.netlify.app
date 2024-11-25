@@ -3,32 +3,42 @@ import pandas as pd
 import time
 import os
 
-# Function to read and update CSV file with new messages
-def update_messages(message, username):
-    # Read existing messages if the file exists
+# Function to initialize and read messages
+def get_messages():
+    # Check if the CSV exists and has data
     if os.path.exists('msg.csv') and os.stat('msg.csv').st_size > 0:
-        df = pd.read_csv('msg.csv')
+        try:
+            df = pd.read_csv('msg.csv')
+            return df
+        except pd.errors.EmptyDataError:
+            # If there's an error reading due to empty file, return an empty DataFrame
+            return pd.DataFrame(columns=["username", "message"])
     else:
-        # Create an empty DataFrame if the file doesn't exist or is empty
-        df = pd.DataFrame(columns=["username", "message"])
+        # If the file doesn't exist or is empty, return an empty DataFrame
+        return pd.DataFrame(columns=["username", "message"])
 
-    # Add new message
+# Function to update the CSV with new messages
+def update_messages(message, username):
+    # Get current messages
+    df = get_messages()
+    
+    # Add the new message
     new_message = {"username": username, "message": message}
     df = df.append(new_message, ignore_index=True)
     
     # Keep only the last 10 messages
     df = df.tail(10)
     
-    # Save the updated dataframe to CSV
+    # Save the updated messages to the CSV
     df.to_csv('msg.csv', index=False)
 
 # Streamlit UI components
 st.title("Message Board")
 
-# User inputs
+# User input for username
 username = st.text_input("Enter your username:", "")
 if username:
-    # Only show message input box when username is entered
+    # Show message input box when username is provided
     message = st.text_input("Enter your message:", "")
     send_button = st.button("Send")
 
@@ -36,7 +46,7 @@ if username:
         update_messages(message, username)
         st.success("Message sent!")
 
-# Display last 10 messages
+# Display the last 10 messages
 st.subheader("Last 10 messages:")
 
 # Using st.empty to refresh the message display
@@ -45,15 +55,12 @@ message_container = st.empty()
 # Set up a refresh every second
 while True:
     try:
-        # Read and display the last 10 messages from the CSV file
-        if os.path.exists('msg.csv'):
-            df = pd.read_csv('msg.csv')
-            if not df.empty:
-                message_container.empty()  # Clear the previous messages
-                for i, row in df.iterrows():
-                    message_container.write(f"{row['username']}: {row['message']}")
-            else:
-                message_container.write("No messages yet.")
+        # Get and display the last 10 messages
+        df = get_messages()
+        if not df.empty:
+            message_container.empty()  # Clear previous messages
+            for i, row in df.iterrows():
+                message_container.write(f"{row['username']}: {row['message']}")
         else:
             message_container.write("No messages yet.")
         
