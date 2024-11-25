@@ -1,6 +1,5 @@
 import streamlit as st
 import pandas as pd
-import time
 import os
 
 # Function to initialize and read messages
@@ -39,6 +38,8 @@ st.title("Message Board")
 
 # User input for username
 username = st.text_input("Enter your username:", "")
+
+# Proceed if the username is entered
 if username:
     # Show message input box when username is provided
     message = st.text_input("Enter your message:", "")
@@ -47,36 +48,27 @@ if username:
     if send_button and message:
         update_messages(message, username)
         st.success("Message sent!")
+        st.experimental_rerun()  # Forces Streamlit to refresh
 
 # Display the last 10 messages from the CSV
 st.subheader("Last 10 messages:")
-
-# Container to display messages
-message_container = st.empty()
 
 # Show content of the CSV file below the messages
 st.subheader("Content of the 'msg.csv' file:")
 df = get_messages()  # Get the current messages from CSV
 if not df.empty:
-    st.write(df)
+    st.write(df)  # Show the DataFrame in the UI
 else:
     st.write("No messages in the file yet.")
 
-# Display the last 10 messages and update every second
-while True:
-    try:
-        # Fetch the latest 10 messages
-        df = get_messages()
-        if not df.empty:
-            # Clear previous messages before updating
-            message_container.empty()
-            # Display the last 10 messages
-            for i, row in df.iterrows():
-                message_container.write(f"{row['username']}: {row['message']}")
-        else:
-            message_container.write("No messages yet.")
-        
-        # Wait for 1 second before refreshing
-        time.sleep(1)
-    except Exception as e:
-        message_container.write(f"Error: {str(e)}")
+# Container to display messages
+message_container = st.empty()
+
+# Display the last 10 messages
+if not df.empty:
+    # Refresh message display every time data is updated
+    message_container.empty()
+    for i, row in df.iterrows():
+        message_container.write(f"{row['username']}: {row['message']}")
+else:
+    message_container.write("No messages yet.")
