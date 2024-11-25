@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import os
-import time
 
 # Function to initialize and read messages
 def get_messages():
@@ -43,37 +42,32 @@ username = st.text_input("Enter your username:", "")
 # Proceed if the username is entered
 if username:
     # Show message input box when username is provided
-    # Use text_area for multiline message input
-    if 'message' not in st.session_state:
-        st.session_state.message = ""  # Initialize the message field
-    
-    message = st.text_area("Enter your message:", st.session_state.message, height=150)
+    message = st.text_input("Enter your message:", "")
     send_button = st.button("Send")
 
     if send_button and message:
         update_messages(message, username)
-        st.session_state.message = ""  # Clear the text area after sending the message
         st.success("Message sent!")
 
 # Display the last 10 messages from the CSV
 st.subheader("Last 10 messages:")
 
+# Show content of the CSV file below the messages
+st.subheader("Content of the 'msg.csv' file:")
+df = get_messages()  # Get the current messages from CSV
+if not df.empty:
+    st.write(df)  # Show the DataFrame in the UI
+else:
+    st.write("No messages in the file yet.")
+
 # Container to display messages
 message_container = st.empty()
 
-# This will update the container every second
-while True:
-    # Get the current messages from CSV
-    df = get_messages()  # Get the current messages from CSV
-    if not df.empty:
-        # Reverse the order to show the latest message first
-        df = df[::-1]
-        message_container.empty()  # Clear the previous messages
-        # Show the last 10 messages
-        for i, row in df.iterrows():
-            message_container.write(f"{row['username']}: {row['message']}")
-    else:
-        message_container.empty()
-        message_container.write("No messages yet.")
-    
-    time.sleep(1)  # Wait for 1 second before refreshing
+# Display the last 10 messages
+if not df.empty:
+    # Display messages from the CSV file
+    message_container.empty()
+    for i, row in df.iterrows():
+        message_container.write(f"{row['username']}: {row['message']}")
+else:
+    message_container.write("No messages yet.")
