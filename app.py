@@ -42,13 +42,15 @@ username = st.text_input("Enter your username:", "")
 # Proceed if the username is entered
 if username:
     # Show message input box when username is provided, use a textarea for multiline input
-    message = st.text_area("Enter your message:", "", height=100)
+    message = st.text_area("Enter your message:", "", height=100, key="message_input")
     send_button = st.button("Send")
 
     if send_button and message:
         update_messages(message, username)
         st.success("Message sent!")
-        st.text_area("Enter your message:", "", height=100)  # Clear the message area after sending
+        
+        # Reset the text area after sending (This will avoid duplicate element ID errors)
+        st.experimental_rerun()
 
 # Display the last 10 messages from the CSV
 st.subheader("Last 10 messages:")
