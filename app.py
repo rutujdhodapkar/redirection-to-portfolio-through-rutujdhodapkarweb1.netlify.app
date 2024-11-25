@@ -48,7 +48,6 @@ if username:
     if send_button and message:
         update_messages(message, username)
         st.success("Message sent!")
-        st.experimental_rerun()  # Forces Streamlit to refresh
 
 # Display the last 10 messages from the CSV
 st.subheader("Last 10 messages:")
@@ -66,7 +65,7 @@ message_container = st.empty()
 
 # Display the last 10 messages
 if not df.empty:
-    # Refresh message display every time data is updated
+    # Display messages from the CSV file
     message_container.empty()
     for i, row in df.iterrows():
         message_container.write(f"{row['username']}: {row['message']}")
