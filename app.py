@@ -48,22 +48,30 @@ if username:
         update_messages(message, username)
         st.success("Message sent!")
 
-# Display the last 10 messages
+# Display the last 10 messages from the CSV
 st.subheader("Last 10 messages:")
 
-# Using st.empty to refresh the message display
+# Container to display messages
 message_container = st.empty()
 
-# Fetch and display messages every second, showing the last 10 messages
+# Show content of the CSV file below the messages
+st.subheader("Content of the 'msg.csv' file:")
+df = get_messages()  # Get the current messages from CSV
+if not df.empty:
+    st.write(df)
+else:
+    st.write("No messages in the file yet.")
+
+# Display the last 10 messages and update every second
 while True:
     try:
-        # Get the latest 10 messages
+        # Fetch the latest 10 messages
         df = get_messages()
         if not df.empty:
             # Clear previous messages before updating
-            message_container.empty()  
+            message_container.empty()
+            # Display the last 10 messages
             for i, row in df.iterrows():
-                # Display each message
                 message_container.write(f"{row['username']}: {row['message']}")
         else:
             message_container.write("No messages yet.")
