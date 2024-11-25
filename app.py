@@ -22,9 +22,11 @@ def update_messages(message, username):
     # Get current messages
     df = get_messages()
     
-    # Add the new message
-    new_message = {"username": username, "message": message}
-    df = df.append(new_message, ignore_index=True)
+    # Create new message as a DataFrame
+    new_message = pd.DataFrame({"username": [username], "message": [message]})
+    
+    # Concatenate the new message with the existing DataFrame
+    df = pd.concat([df, new_message], ignore_index=True)
     
     # Keep only the last 10 messages
     df = df.tail(10)
