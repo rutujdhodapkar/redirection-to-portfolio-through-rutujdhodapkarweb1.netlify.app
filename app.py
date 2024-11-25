@@ -39,21 +39,25 @@ if username:
 # Display last 10 messages
 st.subheader("Last 10 messages:")
 
+# Using st.empty to refresh the message display
+message_container = st.empty()
+
+# Set up a refresh every second
 while True:
     try:
         # Read and display the last 10 messages from the CSV file
         if os.path.exists('msg.csv'):
             df = pd.read_csv('msg.csv')
             if not df.empty:
+                message_container.empty()  # Clear the previous messages
                 for i, row in df.iterrows():
-                    st.write(f"{row['username']}: {row['message']}")
+                    message_container.write(f"{row['username']}: {row['message']}")
             else:
-                st.write("No messages yet.")
+                message_container.write("No messages yet.")
         else:
-            st.write("No messages yet.")
+            message_container.write("No messages yet.")
+        
+        # Wait for 1 second before refreshing
+        time.sleep(1)
     except Exception as e:
-        st.write(f"Error reading messages: {str(e)}")
-    
-    # Wait for 1 second and then refresh the messages
-    time.sleep(1)
-    st.experimental_rerun()
+        message_container.write(f"Error: {str(e)}")
