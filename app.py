@@ -58,28 +58,22 @@ if username:
 # Display the last 10 messages from the CSV
 st.subheader("Last 10 messages:")
 
-# Show content of the CSV file below the messages
-st.subheader("Content of the 'msg.csv' file:")
-df = get_messages()  # Get the current messages from CSV
-if not df.empty:
-    # Reverse the order to show the latest message first
-    df = df[::-1]
-    st.write(df)  # Show the DataFrame in the UI
-else:
-    st.write("No messages in the file yet.")
-
 # Container to display messages
 message_container = st.empty()
 
-# Display the last 10 messages
-if not df.empty:
-    # Display messages from the CSV file, starting from the last (most recent)
-    message_container.empty()
-    for i, row in df.iterrows():
-        message_container.write(f"{row['username']}: {row['message']}")
-else:
-    message_container.write("No messages yet.")
-
-# Simulate a page refresh every 1 second
-time.sleep(1)
-st.experimental_rerun()
+# This will update the container every second
+while True:
+    # Get the current messages from CSV
+    df = get_messages()  # Get the current messages from CSV
+    if not df.empty:
+        # Reverse the order to show the latest message first
+        df = df[::-1]
+        message_container.empty()  # Clear the previous messages
+        # Show the last 10 messages
+        for i, row in df.iterrows():
+            message_container.write(f"{row['username']}: {row['message']}")
+    else:
+        message_container.empty()
+        message_container.write("No messages yet.")
+    
+    time.sleep(1)  # Wait for 1 second before refreshing
