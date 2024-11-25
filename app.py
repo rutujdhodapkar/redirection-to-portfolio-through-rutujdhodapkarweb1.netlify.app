@@ -54,14 +54,16 @@ st.subheader("Last 10 messages:")
 # Using st.empty to refresh the message display
 message_container = st.empty()
 
-# Set up a refresh every second
+# Fetch and display messages every second, showing the last 10 messages
 while True:
     try:
-        # Get and display the last 10 messages
+        # Get the latest 10 messages
         df = get_messages()
         if not df.empty:
-            message_container.empty()  # Clear previous messages
+            # Clear previous messages before updating
+            message_container.empty()  
             for i, row in df.iterrows():
+                # Display each message
                 message_container.write(f"{row['username']}: {row['message']}")
         else:
             message_container.write("No messages yet.")
