@@ -78,3 +78,6 @@ if not df.empty:
         message_container.write(f"{row['username']}: {row['message']}")
 else:
     message_container.write("No messages yet.")
+
+# Auto-refresh every 1 second
+st.autorefresh(interval=1000)  # Interval is in milliseconds (1000ms = 1 second)
