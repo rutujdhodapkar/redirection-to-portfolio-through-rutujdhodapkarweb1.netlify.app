@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import os
+import time
 
 # Function to initialize and read messages
 def get_messages():
@@ -79,5 +80,6 @@ if not df.empty:
 else:
     message_container.write("No messages yet.")
 
-# Auto-refresh every 1 second
-st.autorefresh(interval=1000)  # Interval is in milliseconds (1000ms = 1 second)
+# Simulate a page refresh every 1 second
+time.sleep(1)
+st.experimental_rerun()
