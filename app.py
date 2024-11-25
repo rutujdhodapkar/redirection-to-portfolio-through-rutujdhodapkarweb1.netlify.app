@@ -25,7 +25,7 @@ def update_messages(message, username):
     new_message = pd.DataFrame({"username": [username], "message": [message]})
     
     # Concatenate the new message with the existing DataFrame
-    df = pd.concat([df, new_message], ignore_index=True)
+    df = pd.concat([new_message, df], ignore_index=True)  # Add new message at the top
     
     # Keep only the last 10 messages
     df = df.tail(10)
@@ -41,13 +41,14 @@ username = st.text_input("Enter your username:", "")
 
 # Proceed if the username is entered
 if username:
-    # Show message input box when username is provided
-    message = st.text_input("Enter your message:", "")
+    # Show message input box when username is provided, use a textarea for multiline input
+    message = st.text_area("Enter your message:", "", height=100)
     send_button = st.button("Send")
 
     if send_button and message:
         update_messages(message, username)
         st.success("Message sent!")
+        st.text_area("Enter your message:", "", height=100)  # Clear the message area after sending
 
 # Display the last 10 messages from the CSV
 st.subheader("Last 10 messages:")
@@ -63,9 +64,9 @@ else:
 # Container to display messages
 message_container = st.empty()
 
-# Display the last 10 messages
+# Display the last 10 messages with the most recent message first
 if not df.empty:
-    # Display messages from the CSV file
+    # Reverse the order to display the last message first
     message_container.empty()
     for i, row in df.iterrows():
         message_container.write(f"{row['username']}: {row['message']}")
