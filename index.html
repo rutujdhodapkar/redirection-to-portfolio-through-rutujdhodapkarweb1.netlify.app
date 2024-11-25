@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebSocket Chat</title>
+    <style>
+        /* Basic chat styling */
+        .chat-container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+        .received-message {
+            padding: 10px;
+            background-color: #d3f8d3;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+        .sent-message {
+            padding: 10px;
+            background-color: #d3d3f8;
+            border-radius: 5px;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div id="chatMessages"></div>
+        <input type="text" id="chatInput" placeholder="Type a message..." />
+        <button id="sendButton">Send</button>
+    </div>
+
+    <script>
+        let userName;
+        let socket;
+        let chatMessages = document.getElementById('chatMessages');
+        let chatInput = document.getElementById('chatInput');
+        let sendButton = document.getElementById('sendButton');
+        
+        // Prompt user for username
+        function promptUserName() {
+            userName = prompt('Enter your name:');
+            if (!userName) {
+                alert('You must enter your name to chat.');
+                promptUserName();
+            }
+        }
+
+        // Connect to the WebSocket server
+        function connectToServer() {
+            socket = new WebSocket('ws://localhost:8080');
+            
+            socket.onopen = () => {
+                console.log('Connected to server');
+            };
+
+            socket.onmessage = (event) => {
+                // Display the incoming message
+                displayMessage(event.data, 'received');
+            };
+
+            socket.onclose = () => {
+                console.log('Disconnected from server');
+            };
+
+            socket.onerror = (error) => {
+                console.error('WebSocket error:', error);
+            };
+        }
+
+        // Display message in the chat window
+        function displayMessage(message, type) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = type === 'sent' ? 'sent-message' : 'received-message';
+            messageDiv.textContent = message;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Send message to the server
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (message && userName) {
+                const formattedMessage = `${userName}: ${message}`;
+                socket.send(formattedMessage);
+                displayMessage(formattedMessage, 'sent');
+                chatInput.value = '';  // Clear input field
+            }
+        }
+
+        // Event listeners for the send button and input field
+        sendButton.addEventListener('click', sendMessage);
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // On page load, prompt for username and connect to server
+        window.addEventListener('load', () => {
+            promptUserName();
+            connectToServer();
+        });
+
+        // Ensure WebSocket connection is closed before the window unloads
+        window.addEventListener('beforeunload', () => {
+            if (socket && socket.readyState === WebSocket.OPEN) {
+                socket.close();
+            }
+        });
+    </script>
+</body>
+</html>
