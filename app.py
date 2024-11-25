@@ -1,73 +1,72 @@
-from flask import Flask, render_template, session, jsonify
-from flask_socketio import SocketIO, join_room, leave_room, emit
-import os
-import random
+import streamlit as st
+import pandas as pd
+import time
 
-app = Flask(__name__)
-app.secret_key = os.urandom(24)
-socketio = SocketIO(app)
+# Path for the message CSV file
+MSG_FILE = "msg.csv"
 
-# In-memory store for connected users and the server's role
-users = []
-server = None  # No server initially
+# Initialize the CSV file if it doesn't exist
+def initialize_csv():
+    try:
+        df = pd.read_csv(MSG_FILE)
+    except FileNotFoundError:
+        df = pd.DataFrame(columns=["username", "message"])
+        df.to_csv(MSG_FILE, index=False)
 
-# Web route to render the frontend
-@app.route('/')
-def index():
-    return render_template('index.html')
+# Function to fetch all messages from the CSV file
+def get_messages():
+    try:
+        df = pd.read_csv(MSG_FILE)
+        return df
+    except Exception as e:
+        st.error(f"Error reading messages: {e}")
+        return pd.DataFrame(columns=["username", "message"])
 
-# Web route to get users list
-@app.route('/get_users', methods=['GET'])
-def get_users():
-    return jsonify(users=users)
+# Function to save a new message in the CSV file
+def save_message(username, message):
+    try:
+        df = pd.read_csv(MSG_FILE)
+        df = df.append({"username": username, "message": message}, ignore_index=True)
+        df.to_csv(MSG_FILE, index=False)
+    except Exception as e:
+        st.error(f"Error saving message: {e}")
 
-# SocketIO event when a user joins
-@socketio.on('connect')
-def on_connect():
-    # Add user to the list
-    username = f"User{random.randint(1000, 9999)}"
-    session['username'] = username
-    users.append(username)
-    emit('user_connected', {'username': username}, broadcast=True)
+# Streamlit app
+def run_streamlit_app():
+    st.title("Real-time Messaging System")
 
-    # Assign the first user as the server
-    if len(users) == 1:
-        global server
-        server = username
-        emit('server_assigned', {'server': server}, broadcast=True)
+    # Initialize CSV if needed
+    initialize_csv()
 
-    # Notify the user who the current server is
-    emit('server_update', {'server': server})
+    # User login/username input
+    username = st.text_input("Enter your username:")
+    if not username:
+        st.warning("Please enter a username!")
+        return
 
-# SocketIO event when a user sends a message
-@socketio.on('send_message')
-def handle_message(data):
-    message = data['message']
-    username = session['username']
+    # Display chat messages
+    st.write("**Chat Messages:**")
+    df = get_messages()
 
-    # If the user is the server, broadcast the message to all users
-    if username == server:
-        emit('new_message', {'message': message, 'username': username}, broadcast=True)
-    else:
-        # Send the message only to the server
-        emit('new_message', {'message': message, 'username': username}, room=server)
+    # Loop to display all messages and auto-refresh every second
+    while True:
+        # Display the chat history
+        for idx, row in df.iterrows():
+            st.write(f"{row['username']}: {row['message']}")
 
-# SocketIO event when a user disconnects
-@socketio.on('disconnect')
-def on_disconnect():
-    username = session.get('username')
-    if username in users:
-        users.remove(username)
+        # Refresh every second
+        time.sleep(1)
+        st.experimental_rerun()
 
-    # If the server disconnects, assign a new server
-    if username == server:
-        global server
-        if users:
-            server = users[0]  # Assign the first user as the new server
-            emit('server_assigned', {'server': server}, broadcast=True)
+    # Message input field and button to send a new message
+    message = st.text_area("Enter your message:")
+    if st.button("Send Message"):
+        if message:
+            save_message(username, message)
+            st.success("Message sent!")
+            st.experimental_rerun()
+        else:
+            st.warning("Please enter a message to send.")
 
-    # Broadcast the server update
-    emit('server_update', {'server': server}, broadcast=True)
-
-if __name__ == '__main__':
-    socketio.run(app, debug=True)
+if __name__ == "__main__":
+    run_streamlit_app()
