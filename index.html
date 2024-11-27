@@ -3,20 +3,85 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>FTP Messaging</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Rocket Loading Animation</title>
+  <style>
+    body {
+      background-color: #333;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    .loading-container {
+      text-align: center;
+      position: relative;
+    }
+
+    .lines {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lines .line {
+      width: 80px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.7);
+      animation: move 0.5s infinite;
+      margin: 5px 0;
+    }
+
+    .lines .line:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .lines .line:nth-child(2) {
+      animation-delay: 0.2s;
+    }
+
+    .lines .line:nth-child(3) {
+      animation-delay: 0.4s;
+    }
+
+    @keyframes move {
+      from {
+        transform: translateX(-50px);
+        opacity: 1;
+      }
+      to {
+        transform: translateX(50px);
+        opacity: 0;
+      }
+    }
+
+    p {
+      font-size: 18px;
+      margin-top: 20px;
+      letter-spacing: 5px;
+    }
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        window.location.href = 'https://rutujdhodapkar.netlify.app/';
+      }, 4000); // 4 seconds delay
+    });
+  </script>
 </head>
 <body>
-  <div class="message-box">
-    <h1>Send/Receive Messages via FTP</h1>
-    <form id="messageForm">
-      <textarea id="message" name="message" required></textarea><br><br>
-      <button type="submit">Send Message</button>
-    </form>
-    <h2>Messages:</h2>
-    <div id="messageList"></div>
+  <div class="loading-container">
+    <div class="lines">
+      <div class="line"></div>
+      <div class="line"></div>
+      <div class="line"></div>
+    </div>
+    <p>LOADING</p>
   </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
