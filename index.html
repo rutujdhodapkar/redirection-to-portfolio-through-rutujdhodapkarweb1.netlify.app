@@ -5,7 +5,21 @@
       //this web is just loading animation which redirect to other web, try to access that web
       // search web- rutujdhodapkar.netlify.app 
       // all details are on web: rutujdhodapkar.netlify.app
-      
+      <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden; /* Lock the scroll */
+        }
+    </style>
+</head>
+<body>
+    <h1>Scroll is Locked!</h1>
+    <script>
+        // Script to lock the scroll
+        document.body.style.overflow = 'hidden';
+    </script>
+</body>
       <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Rutuj Dhodapkar's personal portfolio showcasing projects, skills, and contact information and much more.">
@@ -91,5 +105,1596 @@
     </div>
     <p>Redirecting to portfolio: rutujdhodapkar.netlify.app </p>
   </div>
+</body>
+</html>
+<!-- Start of Selection -->
+<!-- © 2024 Rutuj Dhodapkar. All rights reserved. -->
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <style>
+        /* Add some basic styling */
+        .logo {
+            width: 200px; /* Adjust the width as needed */
+            height: auto; /* Maintain the aspect ratio */
+        }
+    </style>
+    <style>
+        .exit-button {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            padding: 10px 20px;
+            background-color: rgba(125, 125, 125, 0.104); /* Added transparency */
+            color: #ffffff;
+            border: none;
+            border-radius: 30px; /* Made round edges */
+            font-size: 1rem; /* Increased font size for bigger arrow */
+            font-weight: bold; /* Make arrow bold */
+            cursor: pointer;
+            z-index: 1001;
+            backdrop-filter: blur(3px); /* Added blur effect */
+        }
+    </style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const backButton = document.createElement('button');
+        backButton.classList.add('exit-button');
+        backButton.innerHTML = 'Exit'; // Button text is "Exit"
+        
+        backButton.addEventListener('click', function() {
+            if (window.history.length > 2) {
+                window.history.go(-2); // Go back two pages in history
+            } else {
+                window.close();
+            }
+        });
+        
+        document.body.appendChild(backButton);
+    });
+</script>
+
+
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rutuj Dhodapkar's personal portfolio showcasing projects, skills, and contact information and much more.">
+    <meta name="keywords" content="Rutuj, Rutuj Dhodapkar, portfolio, web developer, projects, skills, Rutuj Dhodapkar Portfolio, Rutuj portfolio, Dhodapkar, Dhodapkar portfolio">
+    <meta name="author" content="Rutuj Dhodapkar">
+    <title>Rutuj Dhodapkar - Portfolio</title>
+<style>
+    .custom-cursor {
+        width: 25px; /* Increased size */
+        height: 25px; /* Increased size */
+        border-radius: 50%;
+        background-color: rgba(200, 200, 200, 0.297); /* Fixed color */
+        position: absolute;
+        pointer-events: none;
+        z-index: 1000;
+        transition: opacity 0.90s ease, transform 0.90s ease, left 0.1s ease, top 0.1s ease; /* Added more smoothness and latency */
+        backdrop-filter: blur(2px); /* Added blur effect */
+    }
+    
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cursor = document.createElement('div');
+        cursor.classList.add('custom-cursor');
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', function(e) {
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+            cursor.style.transform = 'translate(-50%, -50%)'; /* Center the cursor */
+        });
+
+        document.addEventListener('mouseover', function(e) {
+            if (e.target !== document.body) {
+                cursor.style.opacity = 0;
+            }
+        });
+
+        document.addEventListener('mouseout', function(e) {
+            if (e.target !== document.body) {
+                cursor.style.opacity = 1;
+            }
+        });
+    });
+</script>
+
+
+
+ <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "osm73s829r");
+ </script>
+    <script>
+        // Disable right-click menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Auto detect dark mode preference
+        function detectDarkMode() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        }
+
+        // Listen for changes in the user's color scheme preference
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', detectDarkMode);
+
+        // Detect dark mode on initial load
+        document.addEventListener('DOMContentLoaded', detectDarkMode);
+    </script>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #ffffff; /* Changed background color to white */
+            color: black;
+            padding-top: 60px;
+            scroll-behavior: smooth;
+        }
+
+        body.dark-mode {
+            background-color: #121212; /* Dark background color */
+            color: #ffffff; /* Light text color */
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Header 2 section */
+        header.header-2 {
+            background-color: rgba(255, 255, 255, 0.123);
+            padding: 5px 20px; /* Decreased padding for top and bottom */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow on top and bottom */
+            position: fixed;
+            top: 7.5%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1002;
+            display: flex; /* Always show header 2 */
+            flex-direction: row; /* Arrange items horizontally */
+            justify-content: center;
+            align-items: center;
+            width: auto; /* Adjust width to fit content */
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 40px;
+            backdrop-filter: blur(10px); /* Added blur effect */
+            transition: padding 0.3s ease, max-height 0.5s ease; /* Added transition for padding and max-height */
+            overflow: visible; /* Ensure content doesn't overflow */
+            max-height: 60px; /* Initial max-height */
+        }
+
+        body.dark-mode header.header-2 {
+            background-color: rgba(44, 44, 44, 0.197); /* Dark background color for header */
+        }
+
+        .header-2 .nav ul {
+            display: flex;
+            list-style: none;
+            flex-direction: row; /* Arrange items horizontally */
+        }
+
+        .header-2 .nav ul li {
+            margin: 10px 0; /* Adjusted margin for better spacing */
+        }
+
+        .header-2 .nav ul li a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.9);
+            font-weight: bold;
+            font-size: 1rem; /* Adjusted font size for better scaling */
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.dark-mode .header-2 .nav ul li a {
+            color: rgba(255, 255, 255, 0.9); /* Light text color for nav links */
+        }
+
+        .header-2 .nav ul li a.active {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 51, 255, 0.7);
+        }
+
+        .header-2 .nav ul li a:hover {
+            background: rgba(0, 123, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 1);
+        }
+
+        .header-2 .nav ul li:first-child {
+            display: block; /* Initially show only the first item */
+        }
+
+        .header-2 .nav ul li:not(:first-child) {
+            display: block; /* Show all items */
+        }
+
+        .header-2.expanded {
+            padding: 20px 20px; /* Increased padding for top and bottom when expanded */
+            max-height: 500px; /* Adjust as needed */
+        }
+
+        @keyframes expand {
+            from {
+                max-height: 60px;
+            }
+            to {
+                max-height: 500px; /* Adjust as needed */
+            }
+        }
+
+        /* Hero section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Align text to the left and image to the right */
+            background-color: #ffffff;
+            padding: 60px 20px;
+            min-height: 100vh;
+            text-align: left; /* Align text to the left */
+        }
+
+        body.dark-mode .hero {
+            background-color: #121212; /* Dark background color for page 1 hero section */
+        }
+
+        .hero h2 {
+            font-size: 3rem; /* Adjusted font size for better scaling */
+            font-weight: bold;
+            color: black;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        body.dark-mode .hero h2 {
+            color: white; /* Light text color for page 1 text heading */
+        }
+
+        .hero h2 span {
+            font-size: 3.5rem; /* Adjusted font size for better scaling */
+            background: linear-gradient(80deg, #fe00e5, #7b00ff, #00b3ff, #00c8fa); /*rutuj dhodapkar text color*/
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (min-width: 769px) {
+            .hero h2 span {
+                background: linear-gradient(90deg, #a5a6a6, #868686, #6e6e6e, #464646); /* Blue gradient for larger screens */
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            body.dark-mode .hero h2 span {
+                background: linear-gradient(90deg, #fe00e5,  #00c8fa); /* Darker gradient for dark mode on larger screens */
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+
+        /* for aiml student homepage description */
+        .hero .subtitle { 
+    color: #112b45; /* Dark slate gray for text, improves readability */
+    font-size: 1.25rem; /* Adjusted font size for better scaling */
+    margin-top: 20px; /* Adjusted margin to align with other texts */
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    background-color: transparent; /* Remove background color */
+    padding: 0; /* Remove padding */
+    border-radius: 0; /* Remove border radius */
+    display: block; /* Change display to block to align with other texts */
+    border: none; /* Remove border */
+}
+
+        body.dark-mode .hero .subtitle {
+            color: #b0c4de; /* Light steel blue for dark mode */
+        }
+
+        .hero p {
+            font-size: 1.125rem; /* Adjusted font size for better scaling */
+            color: black;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        body.dark-mode .hero p {
+            color: white; /* Light text color for hero paragraph */
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: black;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem; /* Adjusted font size for better scaling */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            border: 2px solid black;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.dark-mode .cta-button {
+            color: white; /* Light text color for button "get connected"*/
+            border: 2px solid white; /* Light border color for button */
+        }
+
+        .cta-button:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 123, 255, 0.699), rgba(0, 36, 86, 0)); /* Darker gradient colors in blue shades */
+            z-index: -1;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            transform: scaleX(0);
+            transition: transform 0.5s ease, opacity 0.5s ease; /* Added transition for gradient effect */
+            transform: scaleX(0); /* Initial scale for gradient effect */
+            transform-origin: left; /* Set transform origin to left for gradient effect */
+        }
+
+        .cta-button:hover:before {
+            transform: scaleX(1); /* Scale to 100% on hover for gradient effect */
+        }
+
+        .cta-button:hover {
+            box-shadow: 0 0 50px rgb(0, 102, 255); /* Improved shadow color in blue shades */
+            transform: scale(1.05); /* Slightly enlarge the button on hover */
+        }
+
+        /* About Section */
+        .about, .skills, .projects, .contact, .education, .certificates {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about {
+            background-color: #ffffff; /* Changed background color to white */
+        }
+
+        body.dark-mode .about {
+            background-color: #222222; /* Dark background color for about section */
+        }
+
+        .about h3, .skills h3, .projects h3, .contact h3, .education h3, .certificates h3 {
+            font-size: 1.75rem; /* Adjusted font size for better scaling */
+            margin-bottom: 20px;
+            color: rgb(66, 66, 66); /* Changed section headings color to black */
+        }
+
+        body.dark-mode .about h3, 
+        body.dark-mode .skills h3, 
+        body.dark-mode .projects h3, 
+        body.dark-mode .contact h3, 
+        body.dark-mode .education h3, 
+        body.dark-mode .certificates h3 {
+            color: white; /* Light text color for section headings */
+        }
+
+        .about p, .skills p, .projects p, .contact p, .education p, .certificates p {
+            font-size: 1rem; /* Adjusted font size for better scaling */
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+            color: black; /* Changed content color to black */
+        }
+
+        body.dark-mode .about p, 
+        body.dark-mode .skills p, 
+        body.dark-mode .projects p, 
+        body.dark-mode .contact p, 
+        body.dark-mode .education p, 
+        body.dark-mode .certificates p {
+            color: white; /* Light text color for content */
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: #fff;
+        }
+
+        body.dark-mode .skills {
+            background-color: #2b2b2b; /* Dark background color for skills section */
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-left: 0; /* No padding for skills list */
+        }
+
+        .skill-item {
+            display: inline-block;
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1rem; /* Adjusted font size for better scaling */
+            font-weight: bold;
+            color: black;
+            margin: 5px;
+            transition: box-shadow 0.5s ease; /* Added transition for box-shadow */
+        }
+
+        .skill-item:hover {
+            box-shadow: 0 0 45px rgba(0, 47, 255, 0.664); /* Glow effect on hover */
+        }
+
+        body.dark-mode .skill-item {
+            background-color: #bcbcbc; /* Dark background color for skill items */
+            color: rgb(190, 190, 190); /* Light text color for skill items */
+        }
+
+        /* Certificates Section */
+        .certificates {
+            background-color: #f7f7f7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.dark-mode .certificates {
+            background-color: #1e1e1e; /* Dark background color for certificates section */
+        }
+
+        .certificate-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .certificate-item {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3); /* Darker shadow */
+            width: 100%;
+            max-width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            text-align: center; /* Center align text */
+        }
+
+        body.dark-mode .certificate-item {
+            background-color: #404040; /* Dark background color for certificate items */
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(0, 123, 255, 0.697); /* Darker glow and spread up to 35 */
+        }
+
+        .certificate-item img {
+            width: 100%;
+            height: auto; /* Adjust height to auto for correct aspect ratio */
+            object-fit: cover;
+        }
+
+        .certificate-item h4 {
+            font-size: 1.25rem; /* Adjusted font size for better scaling */
+            margin: 15px 0 10px;
+            color: black; /* Changed certificate item heading color to black */
+        }
+
+        body.dark-mode .certificate-item h4 {
+            color: white; /* Light text color for certificate item heading */
+        }
+
+        .certificate-item p {
+            font-size: 1rem; /* Adjusted font size for better scaling */
+            color: black; /* Changed certificate item paragraph color to black */
+            padding: 0 15px 15px;
+            text-align: center; /* Center align text */
+        }
+
+        body.dark-mode .certificate-item p {
+            color: white; /* Light text color for certificate item paragraph */
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: #f7f7f7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.dark-mode .projects {
+            background-color: #1e1e1e; /* Dark background color for projects section */
+        }
+
+        .project-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            position: relative;
+<!-- Start of Selection -->
+<!-- © 2024 Rutuj Dhodapkar. All rights reserved. -->
+
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Rutuj Dhodapkar's personal portfolio showcasing projects, skills, and contact information and much more.">
+    <meta name="keywords" content="Rutuj, Rutuj Dhodapkar, portfolio, web developer, projects, skills, Rutuj Dhodapkar Portfolio, Rutuj portfolio, Dhodapkar, Dhodapkar portfolio">
+    <meta name="author" content="Rutuj Dhodapkar">
+    <title>Rutuj Dhodapkar - Portfolio</title>
+<style>
+    .custom-cursor {
+        width: 15px; /* Increased size */
+        height: 15px; /* Increased size */
+        border-radius: 50%;
+        background-color: rgb(200, 200, 200); /* Fixed color */
+        position: absolute;
+        pointer-events: none;
+        z-index: 1000;
+        transition: opacity 0.2s ease, transform 0.2s ease; /* Added more smoothness */
+    }
+</style>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const cursor = document.createElement('div');
+        cursor.classList.add('custom-cursor');
+        document.body.appendChild(cursor);
+
+        document.addEventListener('mousemove', function(e) {
+            cursor.style.left = e.pageX + 'px';
+            cursor.style.top = e.pageY + 'px';
+            cursor.style.transform = 'translate(-50%, -50%)'; /* Center the cursor */
+        });
+
+        document.addEventListener('mouseover', function(e) {
+            if (e.target !== document.body) {
+                cursor.style.opacity = 0;
+            }
+        });
+
+        document.addEventListener('mouseout', function(e) {
+            if (e.target !== document.body) {
+                cursor.style.opacity = 1;
+            }
+        });
+    });
+</script>
+
+
+
+ <script type="text/javascript">
+    (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "osm73s829r");
+ </script>
+    <script>
+        // Disable right-click menu
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+
+        // Toggle dark mode
+        function toggleDarkMode() {
+            document.body.classList.toggle('dark-mode');
+        }
+
+        // Auto detect dark mode preference
+        function detectDarkMode() {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        }
+
+        // Listen for changes in the user's color scheme preference
+        window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', detectDarkMode);
+
+        // Detect dark mode on initial load
+        document.addEventListener('DOMContentLoaded', detectDarkMode);
+    </script>
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #ffffff; /* Changed background color to white */
+            color: black;
+            padding-top: 60px;
+            scroll-behavior: smooth;
+        }
+
+        body.dark-mode {
+            background-color: #121212; /* Dark background color */
+            color: #ffffff; /* Light text color */
+        }
+
+        .nav {
+            display: flex;
+            justify-content: center;
+        }
+
+        /* Header 2 section */
+        header.header-2 {
+            background-color: rgba(255, 255, 255, 0.123);
+            padding: 5px 20px; /* Decreased padding for top and bottom */
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.1); /* Added shadow on top and bottom */
+            position: fixed;
+            top: 7.5%;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1002;
+            display: flex; /* Always show header 2 */
+            flex-direction: row; /* Arrange items horizontally */
+            justify-content: center;
+            align-items: center;
+            width: auto; /* Adjust width to fit content */
+            max-width: 1200px;
+            margin: 0 auto;
+            border-radius: 40px;
+            backdrop-filter: blur(10px); /* Added blur effect */
+            transition: padding 0.3s ease, max-height 0.5s ease; /* Added transition for padding and max-height */
+            overflow: visible; /* Ensure content doesn't overflow */
+            max-height: 60px; /* Initial max-height */
+        }
+
+        body.dark-mode header.header-2 {
+            background-color: rgba(125, 125, 125, 0.37); /* Dark background color for header */
+        }
+
+        .header-2 .nav ul {
+            display: flex;
+            list-style: none;
+            flex-direction: row; /* Arrange items horizontally */
+        }
+
+        .header-2 .nav ul li {
+            margin: 10px 0; /* Adjusted margin for better spacing */
+        }
+
+        .header-2 .nav ul li a {
+            text-decoration: none;
+            color: rgba(0, 0, 0, 0.9);
+            font-weight: bold;
+            font-size: 1rem; /* Adjusted font size for better scaling */
+            padding: 10px 15px;
+            border-radius: 20px;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        body.dark-mode .header-2 .nav ul li a {
+            color: rgba(255, 255, 255, 0.9); /* Light text color for nav links */
+        }
+
+        .header-2 .nav ul li a.active {
+            background: linear-gradient(90deg, #00c6ff, #0072ff);
+            color: white;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.7);
+        }
+
+        .header-2 .nav ul li a:hover {
+            background: rgba(0, 123, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 1);
+        }
+
+        .header-2 .nav ul li:first-child {
+            display: block; /* Initially show only the first item */
+        }
+
+        .header-2 .nav ul li:not(:first-child) {
+            display: block; /* Show all items */
+        }
+
+        .header-2.expanded {
+            padding: 20px 20px; /* Increased padding for top and bottom when expanded */
+            max-height: 500px; /* Adjust as needed */
+        }
+
+        @keyframes expand {
+            from {
+                max-height: 60px;
+            }
+            to {
+                max-height: 500px; /* Adjust as needed */
+            }
+        }
+
+        /* Hero section */
+        .hero {
+            display: flex;
+            align-items: center;
+            justify-content: space-between; /* Align text to the left and image to the right */
+            background-color: #ffffff;
+            padding: 60px 20px;
+            min-height: 100vh;
+            text-align: left; /* Align text to the left */
+        }
+
+        body.dark-mode .hero {
+            background-color: #121212; /* Dark background color for page 1 hero section */
+        }
+
+        .hero h2 {
+            font-size: 3rem; /* Adjusted font size for better scaling */
+            font-weight: bold;
+            color: black;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        body.dark-mode .hero h2 {
+            color: white; /* Light text color for page 1 text heading */
+        }
+
+        .hero h2 span {
+            font-size: 3.5rem; /* Adjusted font size for better scaling */
+            background: linear-gradient(80deg, #fe00e5, #7b00ff, #00b3ff, #00c8fa); /*rutuj dhodapkar text color*/
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        @media (min-width: 769px) {
+            .hero h2 span {
+                background: linear-gradient(90deg, #a5a6a6, #868686, #6e6e6e, #464646); /* Blue gradient for larger screens */
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+        }
+
+        /* for aiml student homepage description */
+        .hero .subtitle { 
+    color: #112b45; /* Dark slate gray for text, improves readability */
+    font-size: 1.25rem; /* Adjusted font size for better scaling */
+    margin-top: 20px; /* Adjusted margin to align with other texts */
+    font-family: 'League Spartan', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    line-height: 1.4;
+    background-color: transparent; /* Remove background color */
+    padding: 0; /* Remove padding */
+    border-radius: 0; /* Remove border radius */
+    display: block; /* Change display to block to align with other texts */
+    border: none; /* Remove border */
+}
+
+        body.dark-mode .hero .subtitle {
+            color: #b0c4de; /* Light steel blue for dark mode */
+        }
+
+        .hero p {
+            font-size: 1.125rem; /* Adjusted font size for better scaling */
+            color: black;
+            margin-top: 20px;
+            line-height: 1.8;
+        }
+
+        body.dark-mode .hero p {
+            color: white; /* Light text color for hero paragraph */
+        }
+
+        .cta-button {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 12px 24px;
+            background-color: transparent;
+            color: black;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1rem; /* Adjusted font size for better scaling */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+            border: 2px solid black;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.dark-mode .cta-button {
+            color: white; /* Light text color for button "get connected"*/
+            border: 2px solid white; /* Light border color for button */
+        }
+
+        .cta-button:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, rgba(0, 123, 255, 0.699), rgba(0, 36, 86, 0)); /* Darker gradient colors in blue shades */
+            z-index: -1;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+            transform: scaleX(0);
+            transition: transform 0.5s ease, opacity 0.5s ease; /* Added transition for gradient effect */
+            transform: scaleX(0); /* Initial scale for gradient effect */
+            transform-origin: left; /* Set transform origin to left for gradient effect */
+        }
+
+        .cta-button:hover:before {
+            transform: scaleX(1); /* Scale to 100% on hover for gradient effect */
+        }
+
+        .cta-button:hover {
+            box-shadow: 0 0 50px rgb(0, 102, 255); /* Improved shadow color in blue shades */
+            transform: scale(1.05); /* Slightly enlarge the button on hover */
+        }
+
+        /* About Section */
+        .about, .skills, .projects, .contact, .education, .certificates {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .about {
+            background-color: #ffffff; /* Changed background color to white */
+        }
+
+        body.dark-mode .about {
+            background-color: #222222; /* Dark background color for about section */
+        }
+
+        .about h3, .skills h3, .projects h3, .contact h3, .education h3, .certificates h3 {
+            font-size: 1.75rem; /* Adjusted font size for better scaling */
+            margin-bottom: 20px;
+            color: rgb(66, 66, 66); /* Changed section headings color to black */
+        }
+
+        body.dark-mode .about h3, 
+        body.dark-mode .skills h3, 
+        body.dark-mode .projects h3, 
+        body.dark-mode .contact h3, 
+        body.dark-mode .education h3, 
+        body.dark-mode .certificates h3 {
+            color: white; /* Light text color for section headings */
+        }
+
+        .about p, .skills p, .projects p, .contact p, .education p, .certificates p {
+            font-size: 1rem; /* Adjusted font size for better scaling */
+            max-width: 800px;
+            margin: 0 auto 20px;
+            line-height: 1.8;
+            color: black; /* Changed content color to black */
+        }
+
+        body.dark-mode .about p, 
+        body.dark-mode .skills p, 
+        body.dark-mode .projects p, 
+        body.dark-mode .contact p, 
+        body.dark-mode .education p, 
+        body.dark-mode .certificates p {
+            color: white; /* Light text color for content */
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: #fff;
+        }
+
+        body.dark-mode .skills {
+            background-color: #2b2b2b; /* Dark background color for skills section */
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding-left: 0; /* No padding for skills list */
+        }
+
+        .skill-item {
+            display: inline-block;
+            background-color: #f0f0f0;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: 1rem; /* Adjusted font size for better scaling */
+            font-weight: bold;
+            color: black;
+            margin: 5px;
+            transition: box-shadow 0.5s ease; /* Added transition for box-shadow */
+        }
+
+        .skill-item:hover {
+            box-shadow: 0 0 45px rgba(0, 47, 255, 0.664); /* Glow effect on hover */
+        }
+
+        body.dark-mode .skill-item {
+            background-color: #bcbcbc; /* Dark background color for skill items */
+            color: rgb(190, 190, 190); /* Light text color for skill items */
+        }
+
+        /* Certificates Section */
+        .certificates {
+            background-color: #f7f7f7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.dark-mode .certificates {
+            background-color: #1e1e1e; /* Dark background color for certificates section */
+        }
+
+        .certificate-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .certificate-item {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3); /* Darker shadow */
+            width: 100%;
+            max-width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            text-align: center; /* Center align text */
+        }
+
+        body.dark-mode .certificate-item {
+            background-color: #404040; /* Dark background color for certificate items */
+        }
+
+        .certificate-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(0, 123, 255, 0.697); /* Darker glow and spread up to 35 */
+        }
+
+        .certificate-item img {
+            width: 100%;
+            height: auto; /* Adjust height to auto for correct aspect ratio */
+            object-fit: cover;
+        }
+
+        .certificate-item h4 {
+            font-size: 1.25rem; /* Adjusted font size for better scaling */
+            margin: 15px 0 10px;
+            color: black; /* Changed certificate item heading color to black */
+        }
+
+        body.dark-mode .certificate-item h4 {
+            color: white; /* Light text color for certificate item heading */
+        }
+
+        .certificate-item p {
+            font-size: 1rem; /* Adjusted font size for better scaling */
+            color: black; /* Changed certificate item paragraph color to black */
+            padding: 0 15px 15px;
+            text-align: center; /* Center align text */
+        }
+
+        body.dark-mode .certificate-item p {
+            color: white; /* Light text color for certificate item paragraph */
+        }
+
+        /* Projects Section */
+        .projects {
+            background-color: #f7f7f7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        body.dark-mode .projects {
+            background-color: #1e1e1e; /* Dark background color for projects section */
+        }
+
+        .project-list {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-item {
+            background-color: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 25px rgba(0,0,0,0.3); /* Darker shadow */
+            width: 100%;
+            max-width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        body.dark-mode .project-item {
+            background-color: #3f3f3f; /* Dark background color for project items */
+        }
+
+        .project-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 35px rgba(0, 123, 255, 0.697); /* Darker glow and spread up to 35 */
+        }
+
+        .project-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .project-item h4 {
+            font-size: 20px;
+            margin: 15px 0 10px;
+            color: black; /* Changed project item heading color to black */
+        }
+
+        body.dark-mode .project-item h4 {
+            color: white; /* Light text color for project item heading */
+        }
+
+        .project-item p {
+            font-size: 14px;
+            color: black; /* Changed project item paragraph color to black */
+            padding: 0 15px 15px;
+        }
+
+        body.dark-mode .project-item p {
+            color: white; /* Light text color for project item paragraph */
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: #fff;
+        }
+
+        body.dark-mode .contact {
+            background-color: #000000; /* Dark background color for contact section */
+        }
+
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px; /* Increased gap for spreading buttons */
+            margin-top: 30px;
+        }
+
+        .contact-buttons a {
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            color: #fff;
+            transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .contact-buttons a:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 1); /* Darker blue effect on hover */
+        }
+
+        .contact-buttons a.instagram { 
+            background-color: #000; 
+            border: 2px solid #ffffff55; /* Added white border */
+        }
+        .contact-buttons a.twitter { 
+            background-color: #000; 
+            border: 2px solid #ffffff55; /* Added white border */
+        }
+        .contact-buttons a.linkedin { 
+            background-color: #000; 
+            border: 2px solid #ffffff55; /* Added white border */
+        }
+        .contact-buttons a.github { 
+            background-color: #000; 
+            border: 2px solid #ffffff55; /* Added white border */
+        }
+        .contact-buttons a.email { 
+            background-color: #000; 
+            border: 2px solid #ffffff55; /* Added white border */
+        }
+
+        /* Education Section */
+        .education {
+            background: #ffffff; /* Fixed the gradient syntax */
+        }
+
+        body.dark-mode .education {
+            background: #121212; /* Dark background color for education section */
+        }
+
+        .education-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .education-item {
+            background-color: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            text-align: center;
+        }
+
+        body.dark-mode .education-item {
+            background-color: #333333; /* Dark background color for education items */
+        }
+
+        .education-item h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: black; /* Changed education item heading color to black */
+        }
+
+        body.dark-mode .education-item h4 {
+            color: white; /* Light text color for education item heading */
+        }
+
+        .education-item p {
+            font-size: 14px;
+            color: black; /* Changed education item paragraph color to black */
+        }
+
+        body.dark-mode .education-item p {
+            color: white; /* Light text color for education item paragraph */
+        }
+
+        /* Footer Section */
+        footer {
+            background-color: black; /* Changed footer color to black */
+            color: white; /* Changed content color to white */
+            padding: 20px;
+            text-align: center;
+        }
+
+        body.dark-mode footer {
+            background-color: #121212; /* Dark background color for footer */
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        footer a {
+            color: #ffffff;
+            text-decoration: none;
+            margin-left: 5px;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            header.header-2 {
+                display: none; /* Hide header 2 on small screens */
+            }
+
+            .hero {
+                flex-direction: column;
+                background-image: url('White and Black Simple Minimalist Portfolio Cover A4 Document.png');
+                background-size: cover;
+                background-position: right;
+            }
+
+            body.dark-mode .hero {
+                background-image: url('Dark Minimalist Portfolio Cover A4 Document.png'); /* Dark background image for hero section */
+            }
+
+            .hero-text {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            header {
+                width: auto; /* Show only current content/page title */
+            }
+
+            .hero-image {
+                display: none; /* Hide image on small screens */
+            }
+
+            .contact-buttons a {
+                background: linear-gradient(90deg, #000000f8, #000000); /*for small screens */
+            }
+
+   
+        }
+
+        @media (min-width: 769px) {
+            .side-menu {
+                display: none; /* Hide side menu on larger screens */
+            }
+
+            header.header-2 {
+                display: flex; /* Show header 2 on larger screens */
+            }
+
+            header.header-2 .nav {
+                display: flex;
+            }
+
+            .side-menu.open {
+                display: none; /* Ensure side menu doesn't display on larger screens */
+            }
+        }
+
+        /* Left side box */
+        .left-box {
+            position: fixed;
+            top: 12%;
+            left: -300px; /* Initially hide the box */
+            transform: translateY(-50%);
+            background-color: #ffffff25; /* Changed background color to white */
+            color: #000000; /* Changed text color to black */
+            padding: 15px 25px; /* Adjusted padding for better spacing */
+            border-radius: 25px; /* Changed border radius for more curved edges */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added box shadow for depth */
+            transition: left 0.3s ease, box-shadow 0.3s ease; /* Added transition for box shadow */
+            z-index: 1001;
+            backdrop-filter: blur(10px); /* Added blur effect */
+            font-family: 'Arial Black', sans-serif; /* Changed font to Arial Black */
+            font-weight: bold; /* Made text bold */
+            color: #333333; /* Changed text color to match the image */
+        }
+
+        body.dark-mode .left-box {
+    background-color: #3333332b; /* Dark background color for left box */
+    color: white; /* Light text color for left box */
+    backdrop-filter: blur(5px); /* Added blur effect */
+}
+
+
+        .left-box.show {
+            left: 0; /* Show the box */
+        }
+    </style>
+</head>
+<body>
+    <!-- Dark Mode Toggle Button -->
+    <button onclick="toggleDarkMode()" style="position: fixed; top: 10px; right: 10px; padding: 10px 20px; background-color: rgba(188, 188, 188, 0.27); color: #959595; border: none; border-radius: 20px; cursor: pointer; z-index: 1003; box-shadow: 0 0 10px rgba(255, 255, 255, 0); backdrop-filter: blur(5px);">
+        Change Theme
+    </button>
+    
+
+    <!-- Navigation -->
+    <header class="header-2">
+        <nav class="nav">
+            <ul>
+                <li><a href="#top" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#certificates" class="nav-link">Certificates</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="top">
+        <div class="hero-text">
+            <h2>Hello there!<br>I'm <span id="name"></span></h2>
+            <p class="subtitle"> <a href="https://www.google.com/search?q=Artificial+Intelligence+and+Machine+Learning" target="_blank" style="color:rgb(144, 144, 144); text-decoration: none;">Learning Artificial Intelligence</a><a href="https://www.google.com/search?q=Machine+Learning" target="_blank" style="color: rgb(144, 144, 144); text-decoration: none;"> & Machine Learning</a></p> <!-- Added subtitle here -->
+            <p>Welcome to my Portfolio website! Here you can find information about my education, skills, projects, and how to get in touch with me.</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
+        </div>
+        <div class="hero-image" style="text-align: right; padding-right: 100px; padding-top: px;">
+            <img src="Black White Minimalist Photo Collage Student Portfolio.png" alt="Portfolio Image" style="max-width: 40%; height: auto; margin-right: 45px;"> <!-- Made image smaller and aligned to the right -->
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <h3 onclick="openChatGPT()">$: /WHOAMI</h3>
+        <script>
+            function openChatGPT() {
+                const query = "search on web about Rutuj Dhodapkar";
+                const url = `https://chat.openai.com/?q=${encodeURIComponent(query)}`;
+                window.open(url, "_blank");
+            }
+        </script>
+        <p onclick="openChatGPT()">Hey there! I'm Rutuj, a tech enthusiast with a passion for all things AI, machine learning (ML), deep learning (DL), cloud computing, and web development. From coding algorithms in Python to designing sleek, responsive websites, I love turning complex ideas into simple, effective solutions. Right now, I'm diving deep into artificial intelligence and exploring how it, along with cloud technologies, can reshape the way we interact with and deploy technology at scale.</p>
+        <p onclick="openChatGPT()">Whether it's building machine learning models that detect real-time objects, optimizing cloud infrastructure for seamless performance, or enhancing website functionality for a smooth user experience, I'm always eager to learn and push the boundaries of what's possible. To me, technology is more than just a tool—it's an art form that can solve real-world problems in creative and innovative ways.</p>
+        <p onclick="openChatGPT()">When I'm not coding or working with cloud solutions, you'll find me exploring the latest tech trends, experimenting with new tools, or sharing my journey on social media. Let's connect and create something amazing together!</p>
+    </section>
+   
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <h3>Education</h3>
+        <div class="education-list">
+            <div class="education-item">
+                <h4>Diploma Artificial Intelligence & Machine Learning</h4>
+                <p><a href="https://www.kkwagh.edu.in/" target="_blank" style="text-decoration: none; color: rgb(150, 150, 150);">K.K. Wagh Polytechnic, 2022 - 2025</a></p>
+                <p>---</p>
+            </div>
+            <div class="education-item">
+                <h4>High School</h4>
+                <p><a href="https://bms.bhonsala.in/" target="_blank" style="text-decoration: none; color: rgb(150, 150, 150);">Bhosla Military School, 2020 - 2022</a></p>
+                <p>First class Distinction</p>
+            </div>
+        </div>
+    </section>
+    <hr style="border: none; height: 1.1px; background: linear-gradient(to right, #ff0000,#ff003c, #ff00cc, #ee00ff, #6600ff, #004cff, #00eaff);">
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <h3>Skills</h3>
+        <div class="skills-list">
+            <div class="skill-item"><a href="https://www.google.com/search?q=Artificial+Intelligence+(AI)" target="_blank" rel="noopener" style="color: black; text-decoration: none;">Artificial Intelligence (AI)</a></div>
+            <div class="skill-item"><a href="https://www.google.com/search?q=Machine+Learning" target="_blank" rel="noopener" style="color: black; text-decoration: none;">Machine Learning</a></div>
+            <div class="skill-item"><a href="https://www.google.com/search?q=Deep+Learning" target="_blank" rel="noopener" style="color: black; text-decoration: none;">Deep Learning</a></div>
+            <div class="skill-item"><a href="https://www.google.com/search?q=Data+Visualization" target="_blank" rel="noopener" style="color: black; text-decoration: none;">Data Visualization</a></div>
+            <div class="skill-item"><a href="https://www.google.com/search?q=Computer+Vision" target="_blank" rel="noopener" style="color: black; text-decoration: none;">Computer Vision</a></div>
+            <div class="skill-item"><a href="https://www.google.com/search?q=Cloud+Computing" target="_blank" rel="noopener" style="color: black; text-decoration: none;">Cloud Computing</a></div>
+        </div>
+<br><br>
+        
+
+        <div class="Programming-language-list">
+            <div class="skill-item"><a href="https://www.google.com/search?q=Python+Programming+Language" target="_blank" rel="noopener" style="color: black; text-decoration: none;">Python (Programming Language)</a></div>
+            <div class="skill-item"><a href="https://www.google.com/search?q=R+Programming+Language" target="_blank" rel="noopener" style="color: black; text-decoration: none;">R (Programming Language)</a></div>
+            <div class="skill-item"><a href="https://www.google.com/search?q=Java+Programming+Language" target="_blank" rel="noopener" style="color: black; text-decoration: none;">Java (Programming Language)</a></div>
+            <div class="skill-item"><a href="https://www.google.com/search?q=JavaScript+Programming+Language" target="_blank" rel="noopener" style="color: black; text-decoration: none;">JavaScript (Programming Language)</a></div>
+        </div>
+
+    </section>
+    <hr style="border: none; height: 1.1px; background: linear-gradient(to right, #ff0000,#ff003c, #ff00cc, #ee00ff, #6600ff, #004cff, #00eaff);">
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates">
+        <h3>Certificates</h3>
+        <div class="certificate-list">
+            <div class="certificate-item">
+                <a href="https://www.credly.com/badges/c82cd67d-8903-4611-bc52-b71b7fc784b3/public_url" target="_blank" style="text-decoration: none;">
+                    <img src="aws-academy-graduate-aws-academy-cloud-foundations.png" alt="Certificate 1">
+                    <h4>AWS Academy Graduate - AWS Academy Cloud Foundations</h4>
+                    <p>Issued by Amazon Web Services Training and Certification 2024</p>
+                </a>
+            </div>
+            <div class="certificate-item">
+                <a href="https://www.credly.com/badges/9fdff037-5639-42ee-9f8b-85191b0bb2cc/public_url" target="_blank" style="text-decoration: none;">
+                    <img src="aws-educate-machine-learning-foundations.png" alt="Certificate 2">
+                    <h4>AWS Educate Graduate - AWS Educate Machine Learning Foundations</h4>
+                    <p>Issued by Amazon Web Services Training and Certification 2024</p>
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <h3>Projects</h3>
+        <div class="project-list">
+            <div class="project-item">
+                <a href="https://rutujproject1-czzltsg8apdmaxpiz4xgzj.streamlit.app/" style="text-decoration: none;">
+                    <img src="Gemini_Generated_Image_qpyl7qqpyl7qqpyl.jpeg" alt="Project 1">
+                    <h4>Text To Emotion Detection</h4>
+                    <p>Machine Learning model for detecting emotion type based on user input as text.</p>
+                </a>
+            </div>
+            <div class="project-item">
+                <img src="Gemini_Generated_Image_lpspq6lpspq6lpsp.jpeg" alt="Project 2">
+                <h4>Text To Website Generator</h4>
+                <p>ML/DL-based system for generating JS code to make websites as per user text input.</p>
+            </div>
+            <div class="project-item">
+                <img src="Gemini_Generated_Image_ah0ypvah0ypvah0y.jpeg" alt="Project 3">
+                <h4>Real-Time AI-Based Chess Review, Recommendation System</h4>
+                <p>AI-based project that detects and classifies chess moves in real-time using deep learning, and generates output of the best chess move.</p>
+            </div>
+            <div class="project-item">
+                <img src="Gemini_Generated_Image_rpcjqbrpcjqbrpcj.jpeg" alt="Project 4">
+                <h4>Python Tic-Tac-Toe Game</h4>
+                <p>Python code to play tic-tac-toe game online.</p>
+            </div>
+        </div>
+    </section>
+    <hr style="border: none; height: 1.1px; background: linear-gradient(to right, #ff0000,#ff003c, #ff00cc, #ee00ff, #6600ff, #004cff, #00eaff);">
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <h3>Contact Me</h3>
+        <p>Let's get in touch through the following platforms:</p>
+        <div class="contact-buttons">
+
+            <a href="https://www.instagram.com/rutujdhodapkar/" class="instagram" style="display: flex; align-items: center;">
+                <img src="instagram.png" alt="Instagram Logo" style="width: 20px; height: 20px; margin-right: 5px;">Instagram</a>
+
+            <a href="https://x.com/RutujDhodapkar" class="twitter" style="display: flex; align-items: center;">
+                <img src="x com.png" alt="X Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+                X.com</a>
+
+            <a href="https://www.linkedin.com/in/rutuj-dhodapkar-80bb5424a/" class="linkedin" style="display: flex; align-items: center;">
+                <img src="linkdin.png" alt="LinkedIn Logo" style="width: 20px; height: 20px; margin-right: 5px;">
+                LinkedIn</a>
+
+            <a href="https://github.com/rutujdhodapkar" class="github" style="display: flex; align-items: center;">
+                <img src="github.png" alt="GitHub Logo" style="width: 20px; height: 20px; margin-right: 5px;">GitHub</a>
+
+            <a href="mailto:rutujdhodapkar@gmail.com" class="email" style="display: flex; align-items: center;">
+                <img src="mail.png" alt="Email Logo" style="width: 20px; height: 20px; margin-right: 5px;">Email</a>
+        </div>
+    </section>
+    <hr style="border: none; height: 1.1px; background: linear-gradient(to right, #ff0000,#ff003c, #ff00cc, #ee00ff, #6600ff, #004cff, #00eaff);">
+    <!-- Footer Section -->
+    <footer>
+        <p>©2024 Rutuj Dhodapkar Portfolio. All Rights Reserved.</p>
+        <a href="#about">About</a> | 
+        <a href="#education">Education</a> | 
+        <a href="#skills">Skills</a> | 
+        <a href="#certificates">Certificates</a> | 
+        <a href="#projects">Projects</a> | 
+        <a href="#contact">Contact</a>
+    </footer>
+
+    <!-- sliding rutuj dhodapkar button from about page -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const projectsSection = document.querySelector('.projects');
+            const header2 = document.querySelector('.header-2');
+            const leftBox = document.createElement('div');
+            leftBox.classList.add('left-box');
+            leftBox.innerHTML = "<a href='javascript:openChatGPT()' style='text-decoration: none; color: gray;'>RUTUJ DHODAPKAR</a>";
+            document.body.appendChild(leftBox);
+
+            // Typing animation for name
+            const nameElement = document.getElementById('name');
+            const text = "Rutuj Dhodapkar";
+            let i = 0;
+
+            function typeWriter() {
+                if (i < text.length) {
+                    nameElement.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeWriter, 150); // Speed of typing
+                }
+            }
+
+            typeWriter();
+
+            // Add click event to open Google search
+            nameElement.addEventListener('click', function() {
+                window.open('https://www.google.com/search?q=Rutuj+Dhodapkar', '_blank');
+            });
+
+            // Smooth scrolling for anchor links
+            const links = document.querySelectorAll('a[href^="#"]');
+            links.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    const offset = targetElement.getBoundingClientRect().top + window.scrollY - 60; // Adjust for header height
+                    window.scrollTo({
+                        top: offset,
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Highlight active link on scroll
+            window.addEventListener('scroll', () => {
+                let scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+                navLinks.forEach(link => {
+                    let section = document.querySelector(link.getAttribute('href'));
+                    let sectionHeight = section.offsetHeight;
+                    let sectionTop = section.offsetTop;
+                    let sectionBottom = sectionTop + sectionHeight;
+                    let viewportHeight = window.innerHeight;
+
+                    if ((sectionTop <= scrollPos + viewportHeight * 0.5) && (sectionBottom >= scrollPos + viewportHeight * 0.5)) {
+                        navLinks.forEach(nav => nav.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                });
+
+                // Show or hide the left box based on scroll position
+                if (scrollPos > document.querySelector('.hero').offsetHeight) {
+                    leftBox.classList.add('show');
+                } else {
+                    leftBox.classList.remove('show');
+                }
+
+                // Collapse header if expanded
+                if (header2.classList.contains('expanded')) {
+                    header2.classList.remove('expanded');
+                }
+            });
+
+            // Expand header 2 on click
+            header2.addEventListener('click', (e) => {
+                if (!header2.contains(e.target.closest('.nav-link'))) {
+                    header2.classList.toggle('expanded');
+                }
+            });
+
+            // Collapse header if user clicks anywhere outside the header
+            document.addEventListener('click', (e) => {
+                if (!header2.contains(e.target) && header2.classList.contains('expanded')) {
+                    header2.classList.remove('expanded');
+                }
+            });
+
+            // Function to update active link and apply glow effect
+            function updateActiveLink() {
+                let scrollPos = document.documentElement.scrollTop || document.body.scrollTop;
+                navLinks.forEach(link => {
+                    let section = document.querySelector(link.getAttribute('href'));
+                    let sectionHeight = section.offsetHeight;
+                    let sectionTop = section.offsetTop;
+                    let sectionBottom = sectionTop + sectionHeight;
+                    let viewportHeight = window.innerHeight;
+
+                    if ((sectionTop <= scrollPos + viewportHeight * 0.5) && (sectionBottom >= scrollPos + viewportHeight * 0.5)) {
+                        navLinks.forEach(nav => nav.classList.remove('active'));
+                        link.classList.add('active');
+                        link.style.boxShadow = '0 0 35px rgba(0, 123, 255, 1)'; // Apply darker glow effect and spread up to 35
+                    } else {
+                        link.style.boxShadow = 'none'; // Remove glow effect
+                    }
+                });
+            }
+            // Initial call to set the active link on page load
+            updateActiveLink();
+
+            // Update active link on scroll
+            window.addEventListener('scroll', updateActiveLink);
+
+            // Fix for onmouse event error
+            document.querySelectorAll('*').forEach(element => {
+                element.addEventListener('mouseover', function(event) {
+                    event.stopPropagation();
+                });
+            });
+        });
+    </script>
 </body>
 </html>
