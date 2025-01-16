@@ -1,87 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Closed</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f3f3f3;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            color: #555;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        let countdown = 5; // Starting timer in seconds
 
-  <title>Redirecting to portfolio</title>
-  <style>
-    body {
-      background-color: #333;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: white;
-    }
+        function updateButton() {
+            const button = document.getElementById('redirectButton');
+            button.textContent = `Redirecting in ${countdown} seconds...`;
+            countdown--;
 
-    .loading-container {
-      text-align: center;
-      position: relative;
-    }
+            if (countdown < 0) {
+                window.location.href = 'https://newsite.example.com'; // Replace with your new site URL
+            }
+        }
 
-    .lines {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .lines .line {
-      width: 80px;
-      height: 5px;
-      background: rgba(255, 255, 255, 0.7);
-      animation: move 0.5s infinite;
-      margin: 5px 0;
-    }
-
-    .lines .line:nth-child(1) {
-      animation-delay: 0s;
-    }
-
-    .lines .line:nth-child(2) {
-      animation-delay: 0.2s;
-    }
-
-    .lines .line:nth-child(3) {
-      animation-delay: 0.4s;
-    }
-
-    @keyframes move {
-      from {
-        transform: translateX(-50px);
-        opacity: 1;
-      }
-      to {
-        transform: translateX(50px);
-        opacity: 0;
-      }
-    }
-
-    p {
-      font-size: 18px;
-      margin-top: 20px;
-      letter-spacing: 5px;
-    }
-  </style>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(function() {
-        window.location.href = 'https://rutujdhodapkar.netlify.app/';
-      }, 4000); // 4 seconds delay
-    });
-  </script>
+        document.addEventListener('DOMContentLoaded', () => {
+            updateButton();
+            setInterval(updateButton, 1000);
+        });
+    </script>
 </head>
 <body>
-  <div class="loading-container">
-    <div class="lines">
-      <div class="line"></div>
-      <div class="line"></div>
-      <div class="line"></div>
-    </div>
-    <p>Redirecting to portfolio: rutujdhodapkar.netlify.app </p>
-  </div>
+    <h1>We're Moving!</h1>
+    <p>This site is now closed. Please visit our new website for the latest updates and information.</p>
+    <button id="redirectButton" onclick="window.location.href='https://rutujdhodapkar.netlify.app';">Redirecting in 5 seconds...</button>
 </body>
 </html>
