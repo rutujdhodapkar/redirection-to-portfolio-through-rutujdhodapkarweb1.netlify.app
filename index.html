@@ -13,37 +13,39 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #667eea, #764ba2);
-            color: #fff;
+            background: linear-gradient(135deg, #1e3c72, #2a5298); /* Modern blue gradient */
+            color: #e0e0e0;
             text-align: center;
         }
         h1 {
             font-size: 3rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
         }
         p {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            line-height: 1.6;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
         }
         button {
-            padding: 15px 30px;
+            padding: 15px 40px;
             font-size: 1rem;
-            color: #fff;
-            background: #ff5722;
+            color: #ffffff;
+            background: #3b6978; /* Muted blue */
             border: none;
-            border-radius: 50px;
+            border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
             transition: all 0.3s ease;
         }
         button:hover {
-            background: #e64a19;
-            transform: scale(1.05);
+            background: #2c5771; /* Slightly darker shade on hover */
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
         }
         button:active {
-            transform: scale(0.95);
+            transform: translateY(2px);
         }
     </style>
     <script>
@@ -55,7 +57,7 @@
             countdown--;
 
             if (countdown < 0) {
-                window.location.href = 'https://newsite.example.com'; // Replace with your new site URL
+                window.location.href = 'https://rutujdhodapkar.netlify.app'; // Replace with your new site URL
             }
         }
 
@@ -67,7 +69,7 @@
 </head>
 <body>
     <h1>We&#39;re Moving!</h1>
-    <p>This site is now closed. Please visit our new website for the latest updates and information.</p>
+    <p>This site is no longer active. Please visit our new website for the latest updates and features. Thanks for your support!</p>
     <button id="redirectButton" onclick="window.location.href='https://rutujdhodapkar.netlify.app';">Redirecting in 5 seconds...</button>
 </body>
 </html>
