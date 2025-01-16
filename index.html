@@ -6,35 +6,44 @@
     <title>Site Closed</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Roboto', sans-serif;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f3f3f3;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: #fff;
             text-align: center;
         }
         h1 {
-            color: #333;
+            font-size: 3rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
         }
         p {
-            color: #555;
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         button {
-            margin-top: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
+            padding: 15px 30px;
+            font-size: 1rem;
             color: #fff;
-            background-color: #007BFF;
+            background: #ff5722;
             border: none;
-            border-radius: 5px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: background-color 0.3s;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transition: all 0.3s ease;
         }
         button:hover {
-            background-color: #0056b3;
+            background: #e64a19;
+            transform: scale(1.05);
+        }
+        button:active {
+            transform: scale(0.95);
         }
     </style>
     <script>
@@ -57,7 +66,7 @@
     </script>
 </head>
 <body>
-    <h1>We're Moving!</h1>
+    <h1>We&#39;re Moving!</h1>
     <p>This site is now closed. Please visit our new website for the latest updates and information.</p>
     <button id="redirectButton" onclick="window.location.href='https://rutujdhodapkar.netlify.app';">Redirecting in 5 seconds...</button>
 </body>
