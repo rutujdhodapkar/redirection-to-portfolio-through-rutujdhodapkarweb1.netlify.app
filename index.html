@@ -3,61 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Site Closed</title>
+    <title>We're Moving!</title>
     <style>
+        /* General body styles */
         body {
-            font-family: 'Roboto', sans-serif;
+            font-family: 'Poppins', sans-serif;
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
+            flex-direction: column;
             height: 100vh;
             margin: 0;
-            background: linear-gradient(135deg, #1e3c72, #2a5298); /* Modern blue gradient */
-            color: #e0e0e0;
+            background: radial-gradient(circle at top, #1f1c2c, #928dab); /* Smooth futuristic gradient */
+            color: #fff;
             text-align: center;
+            overflow: hidden;
         }
+
+        /* Heading styles */
         h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            text-shadow: 3px 3px 10px rgba(0, 0, 0, 0.5);
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(to right, #8e2de2, #4a00e0); /* Vibrant gradient */
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
         }
+
+        /* Paragraph styles */
         p {
-            font-size: 1.3rem;
-            margin-bottom: 30px;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
             line-height: 1.6;
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            color: rgba(255, 255, 255, 0.9);
         }
+
+        /* Button styles */
         button {
-            padding: 15px 40px;
+            padding: 15px 50px;
             font-size: 1rem;
-            color: #ffffff;
-            background: #3b6978; /* Muted blue */
+            color: #fff;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b); /* Modern red gradient */
             border: none;
-            border-radius: 30px;
+            border-radius: 50px;
             cursor: pointer;
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(255, 0, 95, 0.4);
             transition: all 0.3s ease;
         }
+
         button:hover {
-            background: #2c5771; /* Slightly darker shade on hover */
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            transform: scale(1.1);
+            box-shadow: 0 15px 40px rgba(255, 0, 95, 0.6);
         }
+
         button:active {
-            transform: translateY(2px);
+            transform: scale(0.95);
+        }
+
+        /* Animation for background effect */
+        .background-effect {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200vw;
+            height: 200vw;
+            background: conic-gradient(from 0deg, #1f1c2c, #4a00e0, #928dab, #1f1c2c);
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(1);
+            animation: spin 20s linear infinite;
+            z-index: -1;
+            filter: blur(200px);
+        }
+
+        /* Keyframes for spinning effect */
+        @keyframes spin {
+            0% {
+                transform: translate(-50%, -50%) scale(1) rotate(0deg);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1) rotate(360deg);
+            }
+        }
+
+        /* Timer progress bar styles */
+        .progress-bar {
+            position: relative;
+            width: 80%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+
+        .progress-bar::after {
+            content: "";
+            position: absolute;
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            transition: width 1s linear;
         }
     </style>
     <script>
         let countdown = 5; // Starting timer in seconds
+        const totalTime = countdown; // Store initial value for progress bar calculation
 
         function updateButton() {
             const button = document.getElementById('redirectButton');
+            const progressBar = document.querySelector('.progress-bar::after');
             button.textContent = `Redirecting in ${countdown} seconds...`;
+            progressBar.style.width = `${((totalTime - countdown) / totalTime) * 100}%`; // Update progress bar
             countdown--;
 
             if (countdown < 0) {
-                window.location.href = 'https://rutujdhodapkar.netlify.app'; // Replace with your new site URL
+                window.location.href = 'https://rutujdhodapkar.netlify.app'; // Redirect URL
             }
         }
 
@@ -68,8 +129,13 @@
     </script>
 </head>
 <body>
-    <h1>We&#39;re Moving!</h1>
-    <p>This site is no longer active. Please visit our new website for the latest updates and features. Thanks for your support!</p>
+    <div class="background-effect"></div>
+    <h1>We're Moving!</h1>
+    <p>
+        This site is no longer active. Please visit our new website for the latest updates, innovations, and exciting features.
+        Thank you for being with us on this journey!
+    </p>
     <button id="redirectButton" onclick="window.location.href='https://rutujdhodapkar.netlify.app';">Redirecting in 5 seconds...</button>
+    <div class="progress-bar"></div>
 </body>
 </html>
