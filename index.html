@@ -3,139 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>We're Moving!</title>
+    <title>We're Moving</title>
     <style>
         /* General body styles */
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            margin: 0;
+            padding: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            height: 100vh;
-            margin: 0;
-            background: radial-gradient(circle at top, #1f1c2c, #928dab); /* Smooth futuristic gradient */
-            color: #fff;
+            min-height: 100vh;
+            background: #f7f9fc; /* Subtle modern background */
+            color: #111827;
             text-align: center;
-            overflow: hidden;
         }
 
         /* Heading styles */
         h1 {
             font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #8e2de2, #4a00e0); /* Vibrant gradient */
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            font-weight: 700;
+            margin: 0 0 15px;
+            color: #111827;
+            letter-spacing: -1px;
         }
 
-        /* Paragraph styles */
+        /* Subheading/Paragraph styles */
         p {
-            font-size: 1.2rem;
-            margin-bottom: 25px;
-            line-height: 1.6;
+            font-size: 1.25rem;
+            font-weight: 400;
+            line-height: 1.8;
             max-width: 600px;
-            color: rgba(255, 255, 255, 0.9);
+            margin: 0 0 30px;
+            color: #4b5563;
         }
 
         /* Button styles */
         button {
-            padding: 15px 50px;
             font-size: 1rem;
+            padding: 12px 40px;
+            background: #2563eb; /* Clean modern blue */
             color: #fff;
-            background: linear-gradient(135deg, #ff416c, #ff4b2b); /* Modern red gradient */
             border: none;
-            border-radius: 50px;
+            border-radius: 30px;
             cursor: pointer;
-            box-shadow: 0 10px 30px rgba(255, 0, 95, 0.4);
+            font-weight: 600;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
             transition: all 0.3s ease;
         }
 
         button:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(255, 0, 95, 0.6);
+            background: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(37, 99, 235, 0.4);
         }
 
         button:active {
-            transform: scale(0.95);
+            transform: translateY(2px);
         }
 
-        /* Animation for background effect */
-        .background-effect {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 200vw;
-            height: 200vw;
-            background: conic-gradient(from 0deg, #1f1c2c, #4a00e0, #928dab, #1f1c2c);
-            border-radius: 50%;
-            transform: translate(-50%, -50%) scale(1);
-            animation: spin 20s linear infinite;
-            z-index: -1;
-            filter: blur(200px);
-        }
-
-        /* Keyframes for spinning effect */
-        @keyframes spin {
-            0% {
-                transform: translate(-50%, -50%) scale(1) rotate(0deg);
-            }
-            100% {
-                transform: translate(-50%, -50%) scale(1) rotate(360deg);
-            }
-        }
-
-        /* Timer progress bar styles */
-        .progress-bar {
-            position: relative;
-            width: 80%;
-            height: 8px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            overflow: hidden;
+        /* Countdown animation */
+        .countdown {
+            display: inline-block;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #6b7280;
             margin-top: 20px;
         }
 
-        .progress-bar::after {
-            content: "";
-            position: absolute;
+        /* Progress bar styles */
+        .progress-container {
+            width: 80%;
+            max-width: 500px;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 50px;
+            overflow: hidden;
+            margin-top: 15px;
+            position: relative;
+        }
+
+        .progress-bar {
             height: 100%;
             width: 0%;
-            background: linear-gradient(135deg, #ff416c, #ff4b2b);
+            background: #2563eb;
+            border-radius: 50px;
             transition: width 1s linear;
+        }
+
+        /* Subtle background animation */
+        .background-gradient {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 70%);
+            z-index: -1;
+            animation: pulse 5s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
         }
     </style>
     <script>
-        let countdown = 5; // Starting timer in seconds
-        const totalTime = countdown; // Store initial value for progress bar calculation
+        let countdown = 5; // Starting countdown
+        const totalTime = countdown; // Store total time for progress bar calculation
 
-        function updateButton() {
-            const button = document.getElementById('redirectButton');
-            const progressBar = document.querySelector('.progress-bar::after');
-            button.textContent = `Redirecting in ${countdown} seconds...`;
-            progressBar.style.width = `${((totalTime - countdown) / totalTime) * 100}%`; // Update progress bar
+        function updateCountdown() {
+            const countdownElement = document.getElementById('countdown');
+            const progressBar = document.getElementById('progress-bar');
+            countdownElement.textContent = `Redirecting in ${countdown} seconds...`;
+
+            // Update progress bar
+            progressBar.style.width = `${((totalTime - countdown) / totalTime) * 100}%`;
             countdown--;
 
+            // Redirect when countdown reaches 0
             if (countdown < 0) {
-                window.location.href = 'https://rutujdhodapkar.netlify.app'; // Redirect URL
+                window.location.href = 'https://rutujdhodapkar.netlify.app'; // Replace with your URL
             }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            updateButton();
-            setInterval(updateButton, 1000);
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
         });
     </script>
 </head>
 <body>
-    <div class="background-effect"></div>
-    <h1>We're Moving!</h1>
+    <div class="background-gradient"></div>
+    <h1>We're Moving</h1>
     <p>
-        This site is no longer active. Please visit our new website for the latest updates, innovations, and exciting features.
-        Thank you for being with us on this journey!
+        This site is no longer active. We're excited to welcome you to our new home, where you'll find the latest updates, features, and innovations. 
+        Thank you for being part of our journey!
     </p>
-    <button id="redirectButton" onclick="window.location.href='https://rutujdhodapkar.netlify.app';">Redirecting in 5 seconds...</button>
-    <div class="progress-bar"></div>
+    <button onclick="window.location.href='https://rutujdhodapkar.netlify.app';">Visit New Site</button>
+    <div class="countdown" id="countdown">Redirecting in 5 seconds...</div>
+    <div class="progress-container">
+        <div class="progress-bar" id="progress-bar"></div>
+    </div>
 </body>
 </html>
