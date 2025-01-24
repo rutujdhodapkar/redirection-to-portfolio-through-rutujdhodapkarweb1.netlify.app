@@ -153,10 +153,16 @@
         function updateCountdown() {
             const countdownElement = document.getElementById('countdown');
             const progressBar = document.getElementById('progress-bar');
-            countdownElement.textContent = `Redirecting in ${countdown} seconds...`;
+            if (countdown <= 1) {
+                countdownElement.textContent = "Taking longer than usual...";
+            } else {
+                countdownElement.textContent = `Redirecting in ${countdown} seconds...`;
+            }
 
             // Update progress bar
-            progressBar.style.width = `${((totalTime - countdown) / totalTime) * 100}%`;
+            const progressPercentage = ((totalTime - countdown) / totalTime) * 100;
+            progressBar.style.width = `${progressPercentage}%`;
+
             countdown--;
 
             // Redirect when countdown reaches 0
